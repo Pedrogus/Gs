@@ -32,6 +32,11 @@ const Home = () => {
   };
 
   return (
+
+    <>
+    
+    <MapComponent />
+
     <div className="home">
       <section className="search">
         <h1>Encontre um metodo de transporte sustentável perto de você</h1>
@@ -41,7 +46,6 @@ const Home = () => {
         </div>
       </section>
       
-
       <section className="vehicle-list">
         <div className="vehicle-card">
           <h3>Bicicleta Elétrica</h3>
@@ -70,6 +74,8 @@ const Home = () => {
         </div>
       )}
     </div>
+
+    </>
   );
 };
 

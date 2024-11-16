@@ -1,0 +1,25 @@
+
+nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav li {
+    list-style-type: none;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  nav a:hover {
+    color: #ddd;
+  }
+  

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "253894d1-caf9-4462-8493-495ec1c1c6a3",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Praia de Copacabana",
+    "modalidade": "scooter",
+    "distancia": 5,
+    "pontosGanhos": 40
+  },
+  {
+    "id": "8c170d2b-8815-432f-9fdb-5bcb71aad5fa",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Praia de Copacabana",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "41e9d62c-2a31-4709-bee0-85e2756ae790",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "a5358a7e-4cbc-41b2-91fd-1e066f4eb454",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "5ceca035-88db-4453-8b01-580dbc731bd7",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "2a6c8b33-eb53-40fc-b506-1d2c65a0292d",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Praia de Copacabana",
+    "modalidade": "scooter",
+    "distancia": 5,
+    "pontosGanhos": 40
+  },
+  {
+    "id": "0a5fa826-c6dc-4bb8-bcd2-37b6d1aade09",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "onibus",
+    "distancia": 5,
+    "pontosGanhos": 25
+  },
+  {
+    "id": "429ee8a8-b3f8-48f4-957f-9751852f93ef",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Praia de Copacabana",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "365a3bc0-0ae4-4930-ad8f-cabbea1a8a83",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "scooter",
+    "distancia": 5,
+    "pontosGanhos": 40
+  }
+]

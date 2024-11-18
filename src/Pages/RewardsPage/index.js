@@ -4,14 +4,12 @@ import usuario from '../../data/usuario.json';
 import desafios from '../../data/desafios.json';
 
 const RewardsPage = () => {
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(usuario[0].pontos);
   const [goal, setGoal] = useState(4000);
   const [badges, setBadges] = useState([]);
 
   useEffect(() => {
-    if(usuario && usuario.pontos){
-      setPoints(usuario.pontos);
-    }
+    
    if(desafios && desafios.length > 0) {
       setBadges(desafios)
    }
@@ -28,6 +26,7 @@ const RewardsPage = () => {
 
         if(goal === 4000) {
           setGoal(8000);
+
         } else if (goal === 8000) {
           setBadges((prevBadges) =>
             prevBadges.map((badge) =>
@@ -58,10 +57,10 @@ const RewardsPage = () => {
           <img src="https://via.placeholder.com/150" alt="Profile" />
         </div>
         <div className="user-details">
-          <h3>Nome: {usuario.nome}</h3>
-          <p>Email: {usuario.email}</p>
-          <p>Telefone: {usuario.telefone}</p>
-          <p>Localização: {usuario.localizacao}</p>
+          <h3>Nome: {usuario[0].nome}</h3>
+          <p>Email: {usuario[0].email}</p>
+          <p>Telefone: {usuario[0].telefone}</p>
+          <p>Localização: {usuario[0].localizacao}</p>
         </div>
       </div>
     </div>
@@ -95,14 +94,14 @@ const RewardsPage = () => {
           <h3>Pontos de Viagem</h3>
           <h2>{points}</h2>
         </div>
-        <button onClick={handleAddPoints}>Resgatar Pontos (200 pontos)</button>
+        <button onClick={handleAddPoints}>Resgatar Pontos (500 pontos)</button>
       </section>
 
       {/* Meta */}
 
       <section className="goal">
         <h3>Minha Meta</h3>
-        <p>Junte {goal} pontos para ganhar um desconto de 50% no cinema!</p>
+        <p>Junte {goal} pontos para ganhar {desafios[0].recompensa}</p>
         <div className="progress-bar">
           <div
             className="progress-fill"

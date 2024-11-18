@@ -2,16 +2,19 @@
 { 
     "id": 1, 
     "nome": "Primeira Viagem Sustentável", 
-    "unlocked": true 
+    "unlocked": true,
+    "recompensa": "um desconto de 50% no cinema!"
 }, 
 { 
     "id": 2, 
     "nome": "Junte 4000 Pontos", 
-    "unlocked": false 
+    "unlocked": false,
+    "recompensa": "uma viagem nova!"
 },
 { 
     "id": 3, 
     "nome": "Junte 8000 Pontos", 
-    "unlocked": false 
+    "unlocked": false,
+    "recompensa": "um desconto de 50% no cinema!"
 }
 ]

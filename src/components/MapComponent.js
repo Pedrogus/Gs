@@ -10,18 +10,12 @@ const MapComponent = () => {
   const position = [-22.9519, -43.2105]; // Posição inicial (Brasil)
 
   useEffect(() => {
-    // Buscar pontos turísticos da API
+    // Buscar todos os pontos turísticos ao carregar a página
     axios.get('http://localhost:3001/api/pontos-turisticos')
       .then((response) => setPoints(response.data))
       .catch((error) => console.error("Erro ao buscar pontos turísticos:", error));
   }, []);
 
-  const handleSearch = () => {
-    // Buscar pontos turísticos pelo nome
-    axios.get(`http://localhost:3001/api/pontos-turisticos/busca?nome=${search}`)
-      .then((response) => setPoints(response.data))
-      .catch((error) => console.error("Erro ao buscar pontos turísticos:", error));
-  };
 
 
   return (
@@ -41,14 +35,6 @@ const MapComponent = () => {
         </Marker>
       ))}
     </MapContainer>
-
-
-    <div style={{ marginBottom: '20px'}}>
-      <input type='text' placeholder='Buscar ponto turistico...'
-        value={search} onChange={(e) => setSearch(e.target.value)}
-        style={{padding: '10px', width: '80%'}} />
-        <button onClick={handleSearch} style={{padding: '10px'}}>Buscar</button>
-    </div>
     </>
   );
 };

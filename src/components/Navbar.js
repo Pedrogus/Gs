@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 
 const Navbar = () => {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav>
-      <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none' }}>
-        <li>
-          <Link to="/">Home</Link> {/* Link para a página inicial */}
-        </li>
-        <li>
-          <Link to="/saibaMais">Saiba Mais</Link> {/* Link para a página de perfil */}
-        </li>
-        <li>
-          <Link to="#"> Beneficios  </Link> {/* Link para a página de beneficios do transporte sustentavel */}
-        </li>
-        <li>
-          <Link to="#"> Historico </Link> {/* Link para a página do Historico de Viagem*/}
-        </li>
-        <li>
-          <Link to="/rewards">Recompensas</Link> {/* Link para a página de recompensas */}
-        </li>
-      </ul>
-    </nav>
+    <header className="navbar">
+      <div className="navbar-logo">
+        <img src="./assets/logo.svg" alt="Gs-Electric Logo" className="logo-image" />
+        <span>Gs-Electric</span>
+      </div>
+      <nav className="navbar-links">
+        <a href="/">Saiba Mais</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#historico">Histórico</a>
+        <a href="/rewards">Recompensas</a>
+      </nav>
+    </header>
   );
 };
 

@@ -17,7 +17,6 @@ function App() {
         
         <Route path="/" element={<Home/>} />
         <Route path="/rewards" element={<RewardsPage />} />
-
         {/* Beneficio de andar em veiculos eletricos */}
         { /* Historico de Viagem */}
 

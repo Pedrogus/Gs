@@ -1,32 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './style.css'; 
+import usuario from '../../data/usuario.json';
+import desafios from '../../data/desafios.json';
 
 const RewardsPage = () => {
-  const [points, setPoints] = useState(2000);
+  const [points, setPoints] = useState(0);
   const [goal, setGoal] = useState(4000);
+  const [badges, setBadges] = useState([]);
 
-  const handleRedeem = () => {
-    const discountCost = 200; 
-    if (points >= discountCost) {
-      setPoints(points + discountCost);
-      alert("Pontos resgatado com sucesso!"); /* Fazer algo mais bonito */ 
-    } else {
-      alert("você não tem pontos para resgatar.");
+  useEffect(() => {
+    if(usuario && usuario.pontos){
+      setPoints(usuario.pontos);
     }
-  };
+   if(desafios && desafios.length > 0) {
+      setBadges(desafios)
+   }
+  }, []);
 
-  const [badges, setBadges] = useState([
-    { id: 1, name: "Primeira Viagem Sustentável", unlocked: true },
-    { id: 2, name: "10 Viagens em uma Semana", unlocked: false },
-    { id: 3, name: "100 km Percorridos", unlocked: false },
-  ]);
+  useEffect(() => {
+    if(points >= goal) {
+      setBadges((prevBadges) => 
+        prevBadges.map((badge) => 
+          badge.id === 2 ? {...badge, unlocked: true }
+            : badge
+          ) 
+        );
+
+        if(goal === 4000) {
+          setGoal(8000);
+        } else if (goal === 8000) {
+          setBadges((prevBadges) =>
+            prevBadges.map((badge) =>
+              badge.id === 3 ? { ...badge, unlocked: true } : badge
+            )
+          );
+        }
+
+    }
+  }, [points, goal]);
+
+  const handleAddPoints = () => {
+      setPoints((prevPoints) => prevPoints + 500);
+  };
 
   const progress = Math.min((points / goal) * 100, 100);
 
   return (
 
       <>
-
       {/* Usuario */}
       <div className="user-profile-container">
       <div className="profile-header">
@@ -37,31 +58,32 @@ const RewardsPage = () => {
           <img src="https://via.placeholder.com/150" alt="Profile" />
         </div>
         <div className="user-details">
-          <h3>Nome: João da Silva</h3>
-          <p>Email: joao@email.com</p>
-          <p>Telefone: (XX) XXXXX-XXXX</p>
-          <p>Localização: São Paulo, Brasil</p>
+          <h3>Nome: {usuario.nome}</h3>
+          <p>Email: {usuario.email}</p>
+          <p>Telefone: {usuario.telefone}</p>
+          <p>Localização: {usuario.localizacao}</p>
         </div>
       </div>
     </div>
 
-    {/* Selos ou conquistas */}
+    {/* Selos e conquistas */}
 
     <div className="achievements">
       <h2>Suas Conquistas</h2>
       <div className="badges">
         {badges.map((badge) => (
           <div
-            key={badge.id}
+            key={desafios.id}
             className={`badge ${badge.unlocked ? "unlocked" : "locked"}`}
           >
-            <p>{badge.name}</p>
+            <p>{badge.nome}</p>
           </div>
         ))}
       </div>
     </div>
     
-    {/* recompensas e desafios */}
+    
+    {/* recompensas */}
     <div className="rewards">
       <header>
         <h1>Rewards</h1>
@@ -73,12 +95,10 @@ const RewardsPage = () => {
           <h3>Pontos de Viagem</h3>
           <h2>{points}</h2>
         </div>
-        <div>
-          <h3>Sequência de Viagens</h3>
-          <p>Você usou um transporte sustentável</p>
-        </div>
-        <button onClick={handleRedeem}>Resgatar Pontos (200 pontos)</button>
+        <button onClick={handleAddPoints}>Resgatar Pontos (200 pontos)</button>
       </section>
+
+      {/* Meta */}
 
       <section className="goal">
         <h3>Minha Meta</h3>
@@ -91,6 +111,8 @@ const RewardsPage = () => {
         </div>
         <p>{Math.floor(progress)}% concluído</p>
       </section>
+
+      {/* Desafios */}
 
       <section className="challenges">
         <h3>Desafios</h3>

@@ -36,6 +36,16 @@ const TripManager = () => {
 
     setErro('');
 
+    // Encontrar os pontos de partida e destino com base nos nomes
+    const pontoPartida = pontosTuristicos.find((ponto) => ponto.nome === partida);
+    const pontoDestino = pontosTuristicos.find((ponto) => ponto.nome === destino);
+
+    if (!pontoPartida || !pontoDestino) {
+      setErro('Não foi possível encontrar os pontos turísticos.');
+      return;
+    }
+
+    // Enviar os dados para a API para calcular a distância e pontos ganhos
     axios
       .post('http://localhost:3001/api/iniciar-viagem', {
         userId,
@@ -51,6 +61,7 @@ const TripManager = () => {
         setErro('Ocorreu um erro ao iniciar a viagem.');
       });
   };
+  
 
   return (
     <div>

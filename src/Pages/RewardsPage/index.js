@@ -4,7 +4,7 @@ import './style.css';
 const RewardsPage = () => {
   const [usuario, setUsuario] = useState(null);
   const [badges, setBadges] = useState([]);
-  const [goal, setGoal] = useState(4000);
+  const [goal, setGoal] = useState(500);
   const [progress, setProgress] = useState(0);
  
   const usuarioId = 1;
@@ -32,7 +32,7 @@ const RewardsPage = () => {
   }
 
   const handleRedeemPoints = async () => {
-    const pontosParaResgatar = 500; // Exemplo: quantidade fixa para resgatar
+    const pontosParaResgatar = 100; // Exemplo: quantidade fixa para resgatar
     if (!usuario || usuario.pontos < pontosParaResgatar) {
       alert('Pontos insuficientes para resgatar.');
       return;

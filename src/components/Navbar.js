@@ -19,11 +19,11 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-logo">
-        <img src="./assets/logo.svg" alt="Gs-Electric Logo" className="logo-image" />
-        <span>Gs-Electric</span>
+      <a href="/" > <img src="./assets/logo.svg" alt="Gs-Electric Logo" className="logo-image" /> </a>
+        <span>Gs-Electric </span>
       </div>
       <nav className="navbar-links">
-        <a href="/">Saiba Mais</a>
+        <a href="#saiba-mais">Saiba Mais</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#historico">Histórico</a>
         <a href="/rewards">Recompensas</a>

@@ -50,7 +50,8 @@ app.get('/api/recompensas', (req, res) => {
   // Resposta com informações de recompensas
   return res.json({
       nome: usuario.nome,
-      
+      email: usuario.email,
+      telefone: usuario.telefone,
       pontos: usuario.pontos, // Pontos acumulados do usuário
       conquistas: usuario.conquistas || [], // Lista de conquistas desbloqueadas
       progressoDesafios: usuario.desafios || {}, // Progresso nos desafios
@@ -137,8 +138,29 @@ app.post('/api/iniciar-viagem', (req, res) => {
     return res.status(404).json({ error: 'Ponto de partida ou destino não encontrado.' });
   }
 
-  // Calcular distância fixa para simplificação (exemplo: 5 km)
-  const distancia = 5;
+  // Calcular distância usando a fórmula de Haversine
+  const lat1 = pontoPartida.localizacao[0];
+  const lon1 = pontoPartida.localizacao[1];
+  const lat2 = pontoDestino.localizacao[0];
+  const lon2 = pontoDestino.localizacao[1];
+
+  function deg2rad(deg) {
+    return deg * (Math.PI / 180);
+  }
+
+  function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Raio da Terra em km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distância em km
+  }
+
+  const distancia = calcularDistancia(lat1, lon1, lat2, lon2);
 
   // Calcular os pontos ganhos com base na modalidade
   let pontosPorKm;
@@ -156,7 +178,7 @@ app.post('/api/iniciar-viagem', (req, res) => {
       return res.status(400).json({ error: 'Modalidade de transporte inválida.' });
   }
 
-  const pontosGanhos = distancia * pontosPorKm;
+  const pontosGanhos = Math.round(distancia * pontosPorKm);
 
   // Criar um registro de viagem
   const novaViagem = {
@@ -178,6 +200,8 @@ app.post('/api/iniciar-viagem', (req, res) => {
   usuario.historico = usuario.historico || [];
   usuario.historico.push(novaViagem.id);
 
+  usuario.pontos += pontosGanhos;
+
   fs.writeFileSync(
     path.join(__dirname, './src/data/usuarios.json'),
     JSON.stringify(usuarios, null, 2)
@@ -186,14 +210,15 @@ app.post('/api/iniciar-viagem', (req, res) => {
   // Retornar os detalhes da viagem
   res.json({
     detalhes: {
-      distancia,
-      pontosGanhos,
+      distancia: distancia.toFixed(2),
+      pontosGanhos: pontosGanhos.toFixed(0),
       partida,
       destino,
       modalidade,
     },
   });
 });
+
 
 // Iniciar o servidor
 app.listen(PORT, () => {

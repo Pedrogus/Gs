@@ -1,73 +1,36 @@
-# Getting Started with Create React App
+# Projeto GS - Eletric
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Viagem Sustentável - Plataforma de Viagens e Gamificação
 
-## Available Scripts
+**Viagem Sustentável** é uma plataforma interativa que promove viagens ecológicas e sustentáveis, incentivando os usuários a se deslocarem de forma mais responsável e consciente com o meio ambiente. O diferencial do nosso sistema é a **gamificação**, onde os usuários ganham **pontos de viagem** a cada percurso realizado, que podem ser trocados por benefícios, estimulando o engajamento e a utilização de meios de transporte sustentáveis como bicicletas, scooters e ônibus.
 
-In the project directory, you can run:
+## 🚀 Como Rodar o Projeto
 
-### `npm start`
+    node server.js
+    npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+💡 Ideia do Projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A Viagem Sustentável visa incentivar a adoção de modos de transporte ecológicos, como bicicletas, scooters elétricas e ônibus, para melhorar a mobilidade urbana de maneira responsável e sem agredir o meio ambiente. A cada viagem realizada, o usuário acumula pontos de viagem que podem ser trocados por benefícios, como descontos em viagens, benefícios exclusivos, ou até mesmo mais pontos.
+Funcionalidades
 
-### `npm test`
+    Cadastro e Login de Usuários: Os usuários podem se cadastrar e fazer login para acessar seus históricos e acumular pontos.
+    Seleção de Ponto de Partida e Destino: Os usuários escolhem os pontos turísticos da cidade e definem seu trajeto.
+    Modalidades de Transporte: O sistema oferece diferentes opções de transporte sustentável (bicicleta, scooter e ônibus).
+    Acúmulo de Pontos: A cada viagem, os usuários ganham pontos de acordo com a distância percorrida e o meio de transporte escolhido.
+    Gamificação: Os pontos podem ser trocados por benefícios, como descontos em futuras viagens ou recompensas exclusivas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Como Funciona a Gamificação?
 
-### `npm run build`
+Ao realizar uma viagem na plataforma, o usuário acumula pontos com base na distância percorrida e na modalidade de transporte escolhida. Os pontos são calculados da seguinte forma:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Bicicleta: 10 pontos por km
+    Scooter: 8 pontos por km
+    Ônibus: 5 pontos por km
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) 
+Esses pontos podem ser trocados por benefícios exclusivos, como descontos em futuras viagens ou recompensas de parceiros ecológicos.
 
 
+    📝 Contribuições
 
+    

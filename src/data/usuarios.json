@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "nome": "João da Silva",
+    "email": "joao@email.com",
+    "telefone": "(XX) XXXXX-XXXX",
+    "pontos": 88,
+    "conquistas": [
+      "Primeira viagem sustentável",
+      "Viage 10km de scooters",
+      "Juntou 1000 pontos"
+    ],
+    "desafios": {
+      "Usar bicicleta 3 vezes em uma semana": 2,
+      "Viajar 10 km em scooters": 0
+    },
+    "historico": [
+      "21e6f600-1422-4c29-a724-f55b859091cc",
+      "5a591ff0-6fb1-4f0e-a4a0-940833829cfb",
+      "a1604da4-62c3-4499-b968-923d4bb38327",
+      "4cc1b4cd-a378-44bd-8f67-b2a1fa2ef169",
+      "e032c1e6-152e-4fbd-a270-503f8601b838"
+    ]
+  }
+]

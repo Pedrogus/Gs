@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const MapComponent = () => {
   const [points, setPoints] = useState([]);
-  const [search, setSearch] = useState("");
   const position = [-22.9519, -43.2105]; // Posição inicial (Brasil)
 
   useEffect(() => {
@@ -15,8 +14,6 @@ const MapComponent = () => {
       .then((response) => setPoints(response.data))
       .catch((error) => console.error("Erro ao buscar pontos turísticos:", error));
   }, []);
-
-
 
   return (
     <>

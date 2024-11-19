@@ -4,27 +4,20 @@
     "nome": "João da Silva",
     "email": "joao@email.com",
     "telefone": "(XX) XXXXX-XXXX",
-    "localizacao": "São Paulo, Brasil",
-    "pontos": 2000,
+    "pontos": 0,
+    "conquistas": [
+      "Primeira viagem sustentável",
+      "Viage 10km de scooters"
+    ],
+    "desafios": {
+      "Usar bicicleta 3 vezes em uma semana": 2,
+      "Viajar 10 km em scooters": 0
+    },
     "historico": [
-      "253894d1-caf9-4462-8493-495ec1c1c6a3",
-      "8c170d2b-8815-432f-9fdb-5bcb71aad5fa",
-      "41e9d62c-2a31-4709-bee0-85e2756ae790",
-      "a5358a7e-4cbc-41b2-91fd-1e066f4eb454",
-      "5ceca035-88db-4453-8b01-580dbc731bd7",
-      "2a6c8b33-eb53-40fc-b506-1d2c65a0292d",
-      "0a5fa826-c6dc-4bb8-bcd2-37b6d1aade09",
-      "429ee8a8-b3f8-48f4-957f-9751852f93ef",
-      "365a3bc0-0ae4-4930-ad8f-cabbea1a8a83"
+      "e8b8010a-ed1b-401c-9b54-3db41d5dead2",
+      "b9c488af-7c1d-4a71-9d06-c60cf615cf0d",
+      "9b8e9342-794a-47a3-800a-829674f4c632",
+      "d8fb1be5-be77-4364-a01d-00fedb73061d"
     ]
-  },
-  {
-    "id": 2,
-    "nome": "Pedro Gustavo",
-    "email": "pedro@email.com",
-    "telefone": "(XX) XXXXX-XXXX",
-    "localizacao": "Rio de janeiro, Brasil",
-    "pontos": 1000,
-    "historico": []
   }
 ]

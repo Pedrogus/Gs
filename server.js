@@ -5,8 +5,10 @@ const fs = require('fs');
 const path = require('path');
 
 const pontosTuristicos = require('./src/data/pontosTuristicos.json');
-const usuarios = require('./src/data/usuario.json'); // Arquivo de usuários
+const usuarios = require('./src/data/usuarios.json'); // Arquivo de usuários
+
 const viagensPath = path.join(__dirname, './src/data/viagens.json'); // Caminho para o arquivo de viagens
+const usuariosPath = path.join(__dirname, './src/data/usuarios.json');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,19 +16,103 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+
 // Rota para listar todos os pontos turísticos
 app.get('/api/pontos-turisticos', (req, res) => {
   res.json(pontosTuristicos);
 });
 
-// Rota para buscar pontos turísticos por nome
-app.get('/api/pontos-turisticos/busca', (req, res) => {
-  const nome = req.query.nome?.toLowerCase();
-  const resultados = pontosTuristicos.filter((ponto) =>
-    ponto.nome.toLowerCase().includes(nome)
-  );
-  res.json(resultados);
+// Rota para verificar conquistas e recompensas
+app.get('/api/recompensas', (req, res) => {
+  const usuarioId = parseInt(req.query.usuarioId); // Obtém o ID do usuário na query string
+
+  // Valida se o ID é um número válido
+  if (isNaN(usuarioId)) {
+      return res.status(400).json({ error: 'ID do usuário inválido' });
+  }
+
+  // Lê os dados do arquivo JSON
+  let usuarios;
+  try {
+      const usuariosData = fs.readFileSync(usuariosPath, 'utf-8');
+      usuarios = JSON.parse(usuariosData);
+  } catch (error) {
+      return res.status(500).json({ error: 'Erro ao carregar os dados dos usuários.' });
+  }
+
+  // Encontra o usuário pelo ID
+  const usuario = usuarios.find((user) => user.id === usuarioId);
+
+  if (!usuario) {
+      return res.status(404).json({ error: 'Usuário não encontrado.' });
+  }
+
+  // Resposta com informações de recompensas
+  return res.json({
+      nome: usuario.nome,
+      
+      pontos: usuario.pontos, // Pontos acumulados do usuário
+      conquistas: usuario.conquistas || [], // Lista de conquistas desbloqueadas
+      progressoDesafios: usuario.desafios || {}, // Progresso nos desafios
+      desafiosDisponiveis: [
+          { nome: 'Use uma bicicleta 3 vezes em uma semana', recompensa: 300 },
+          { nome: 'Viaje 10 km em scooters', recompensa: 500 }
+      ] 
+  });
 });
+
+// Rota para resgatar pontos
+app.post('/api/resgatar-pontos', (req, res) => {
+  const { usuarioId, pontosParaResgatar } = req.body;
+
+  if (!usuarioId || !pontosParaResgatar) {
+    return res.status(400).json({ error: 'ID do usuário e pontos para resgatar são obrigatórios.' });
+}
+
+if (isNaN(pontosParaResgatar) || pontosParaResgatar <= 0) {
+    return res.status(400).json({ error: 'A quantidade de pontos para resgatar deve ser um número positivo.' });
+}
+
+  // carregando dados do arquivo json
+  let usuarios;
+    try {
+        const usuariosData = fs.readFileSync(usuariosPath, 'utf-8');
+        usuarios = JSON.parse(usuariosData);
+    } catch (error) {
+        console.error('Erro ao carregar dados dos usuários:', error.message);
+        return res.status(500).json({ error: 'Erro ao carregar os dados dos usuários.' });
+    }
+
+    // Encontrar o usuário pelo ID
+    const usuario = usuarios.find(user => user.id === usuarioId);
+
+    if (!usuario) {
+        return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
+
+    // Verificar se o usuário tem pontos suficientes
+    if (usuario.pontos < pontosParaResgatar) {
+        return res.status(400).json({ error: 'Pontos insuficientes para resgatar.' });
+    }
+
+    // Atualizar os pontos do usuário
+    usuario.pontos -= pontosParaResgatar;
+
+    // Salvar as alterações no arquivo JSON
+    try {
+        fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+    } catch (error) {
+        console.error('Erro ao salvar dados dos usuários:', error.message);
+        return res.status(500).json({ error: 'Erro ao salvar os dados dos usuários.' });
+    }
+
+    // Responder com confirmação
+    return res.json({
+        mensagem: 'Resgate realizado com sucesso.',
+        pontosRestantes: usuario.pontos
+    });
+});
+
 
 // Rota para iniciar uma viagem
 app.post('/api/iniciar-viagem', (req, res) => {

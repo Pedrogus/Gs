@@ -1,54 +1,74 @@
 import React, { useState, useEffect } from "react";
 import './style.css'; 
-import usuario from '../../data/usuario.json';
-import desafios from '../../data/desafios.json';
 
 const RewardsPage = () => {
-  const [points, setPoints] = useState(usuario[0].pontos);
-  const [goal, setGoal] = useState(4000);
+  const [usuario, setUsuario] = useState(null);
   const [badges, setBadges] = useState([]);
-
+  const [goal, setGoal] = useState(4000);
+  const [progress, setProgress] = useState(0);
+ 
+  const usuarioId = 1;
+ 
   useEffect(() => {
-    
-   if(desafios && desafios.length > 0) {
-      setBadges(desafios)
-   }
-  }, []);
+    // Fetch inicial para obter as recompensas do usuário
+    const fetchRewards = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/api/recompensas?usuarioId=${usuarioId}`);
+        if (!response.ok) throw new Error('Erro ao buscar recompensas');
+        const data = await response.json();
+        setUsuario(data);
+        setBadges(data.conquistas || []);
+        setProgress(Math.min((data.pontos / goal) * 100, 100));
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  useEffect(() => {
-    if(points >= goal) {
-      setBadges((prevBadges) => 
-        prevBadges.map((badge) => 
-          badge.id === 2 ? {...badge, unlocked: true }
-            : badge
-          ) 
-        );
+    fetchRewards();
+  }, [usuarioId, goal]);
 
-        if(goal === 4000) {
-          setGoal(8000);
+  if (!usuario) {
+    return <p>Carregando informações do usuário...</p>;
+  }
 
-        } else if (goal === 8000) {
-          setBadges((prevBadges) =>
-            prevBadges.map((badge) =>
-              badge.id === 3 ? { ...badge, unlocked: true } : badge
-            )
-          );
-        }
-
+  const handleRedeemPoints = async () => {
+    const pontosParaResgatar = 500; // Exemplo: quantidade fixa para resgatar
+    if (!usuario || usuario.pontos < pontosParaResgatar) {
+      alert('Pontos insuficientes para resgatar.');
+      return;
     }
-  }, [points, goal]);
 
-  const handleAddPoints = () => {
-      setPoints((prevPoints) => prevPoints + 500);
+    try {
+      const response = await fetch('http://localhost:3001/api/resgatar-pontos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuarioId, pontosParaResgatar }),
+      });
+
+      if (!response.ok) throw new Error('Erro ao resgatar pontos');
+
+      const data = await response.json();
+      setUsuario((prevUsuario) => ({
+        ...prevUsuario,
+        pontos: data.pontosRestantes,
+      }));
+
+      alert(data.mensagem); // Exibe mensagem de confirmação
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao tentar resgatar pontos.');
+    }
   };
 
-  const progress = Math.min((points / goal) * 100, 100);
+  if (!usuario) {
+    return <p>Carregando...</p>;
+  }
 
   return (
 
-      <>
-      {/* Usuario */}
-      <div className="user-profile-container">
+    <>
+    {/* Perfil do Usuário */}
+    <div className="user-profile-container">
       <div className="profile-header">
         <h2>Perfil do Usuário</h2>
       </div>
@@ -57,32 +77,26 @@ const RewardsPage = () => {
           <img src="https://via.placeholder.com/150" alt="Profile" />
         </div>
         <div className="user-details">
-          <h3>Nome: {usuario[0].nome}</h3>
-          <p>Email: {usuario[0].email}</p>
-          <p>Telefone: {usuario[0].telefone}</p>
-          <p>Localização: {usuario[0].localizacao}</p>
+        <h3>Nome: {usuario.nome || "Não informado"}</h3>
+            <p>Email: {usuario.email || "Não informado"}</p>
+            <p>Telefone: {usuario.telefone || "Não informado"}</p>
         </div>
       </div>
     </div>
 
-    {/* Selos e conquistas */}
-
+    {/* Conquistas */}
     <div className="achievements">
       <h2>Suas Conquistas</h2>
       <div className="badges">
-        {badges.map((badge) => (
-          <div
-            key={desafios.id}
-            className={`badge ${badge.unlocked ? "unlocked" : "locked"}`}
-          >
-            <p>{badge.nome}</p>
+        {badges.map((badge, index) => (
+          <div key={index} className="badge unlocked">
+            <p>{badge}</p>
           </div>
         ))}
       </div>
     </div>
-    
-    
-    {/* recompensas */}
+
+    {/* Recompensas */}
     <div className="rewards">
       <header>
         <h1>Rewards</h1>
@@ -91,46 +105,23 @@ const RewardsPage = () => {
 
       <section className="points">
         <div>
-          <h3>Pontos de Viagem</h3>
-          <h2>{points}</h2>
+          <h3>Pontos para Resgatar</h3>
+          <h2>{usuario.pontos}</h2>
         </div>
-        <button onClick={handleAddPoints}>Resgatar Pontos (500 pontos)</button>
+        <button onClick={handleRedeemPoints}>Resgatar Pontos</button>
       </section>
 
       {/* Meta */}
-
       <section className="goal">
         <h3>Minha Meta</h3>
-        <p>Junte {goal} pontos para ganhar {desafios[0].recompensa}</p>
+        <p>Junte {goal} pontos para ganhar uma nova conquista!</p>
         <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${progress}%` }}
-          ></div>
+          <div className="progress-fill" style={{ width: `${progress}%` }}></div>
         </div>
         <p>{Math.floor(progress)}% concluído</p>
       </section>
-
-      {/* Desafios */}
-
-      <section className="challenges">
-        <h3>Desafios</h3>
-        <ul>
-          <li>Use uma bicicleta 3 vezes nesta semana - Ganhe 300 pontos!</li>
-          <li>Viaje 10 km em scooters - Ganhe 500 pontos extras!</li>
-        </ul>
-      </section>
-
-      <section className="history">
-        <h3>Histórico de Pontos</h3>
-        <ul>
-          <li>+200 pontos - Viagem Sustentável - 15/11/2024</li>
-          <li>-500 pontos - Resgate de desconto - 16/11/2024</li>
-        </ul>
-      </section>
     </div>
-
-    </>
+  </>
   );
 };
 

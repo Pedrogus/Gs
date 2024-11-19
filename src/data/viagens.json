@@ -1,60 +1,15 @@
 [
   {
-    "id": "253894d1-caf9-4462-8493-495ec1c1c6a3",
+    "id": "90c28b8e-6339-4ead-9f95-096a6e573de8",
     "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Praia de Copacabana",
-    "modalidade": "scooter",
-    "distancia": 5,
-    "pontosGanhos": 40
-  },
-  {
-    "id": "8c170d2b-8815-432f-9fdb-5bcb71aad5fa",
-    "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Praia de Copacabana",
+    "partida": "Pão de Açúcar",
+    "destino": "Cristo Redentor",
     "modalidade": "bicicleta",
     "distancia": 5,
     "pontosGanhos": 50
   },
   {
-    "id": "41e9d62c-2a31-4709-bee0-85e2756ae790",
-    "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Pão de Açúcar",
-    "modalidade": "bicicleta",
-    "distancia": 5,
-    "pontosGanhos": 50
-  },
-  {
-    "id": "a5358a7e-4cbc-41b2-91fd-1e066f4eb454",
-    "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Pão de Açúcar",
-    "modalidade": "bicicleta",
-    "distancia": 5,
-    "pontosGanhos": 50
-  },
-  {
-    "id": "5ceca035-88db-4453-8b01-580dbc731bd7",
-    "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Pão de Açúcar",
-    "modalidade": "bicicleta",
-    "distancia": 5,
-    "pontosGanhos": 50
-  },
-  {
-    "id": "2a6c8b33-eb53-40fc-b506-1d2c65a0292d",
-    "userId": 1,
-    "partida": "Cristo Redentor",
-    "destino": "Praia de Copacabana",
-    "modalidade": "scooter",
-    "distancia": 5,
-    "pontosGanhos": 40
-  },
-  {
-    "id": "0a5fa826-c6dc-4bb8-bcd2-37b6d1aade09",
+    "id": "259b2624-4b34-4d13-b1eb-333b8737dd32",
     "userId": 1,
     "partida": "Cristo Redentor",
     "destino": "Pão de Açúcar",
@@ -63,21 +18,111 @@
     "pontosGanhos": 25
   },
   {
-    "id": "429ee8a8-b3f8-48f4-957f-9751852f93ef",
+    "id": "245ae30e-04de-43fd-8ddb-d09e31481ad2",
+    "userId": 1,
+    "partida": "Praia de Copacabana",
+    "destino": "Cristo Redentor",
+    "modalidade": "onibus",
+    "distancia": 5,
+    "pontosGanhos": 25
+  },
+  {
+    "id": "f1dee36f-7c8a-477c-9e6c-e851053a1d75",
     "userId": 1,
     "partida": "Cristo Redentor",
-    "destino": "Praia de Copacabana",
+    "destino": "Pão de Açúcar",
     "modalidade": "bicicleta",
     "distancia": 5,
     "pontosGanhos": 50
   },
   {
-    "id": "365a3bc0-0ae4-4930-ad8f-cabbea1a8a83",
+    "id": "3a479452-5739-4346-add0-f034fa8634c2",
     "userId": 1,
     "partida": "Cristo Redentor",
     "destino": "Pão de Açúcar",
-    "modalidade": "scooter",
+    "modalidade": "bicicleta",
     "distancia": 5,
-    "pontosGanhos": 40
+    "pontosGanhos": 50
+  },
+  {
+    "id": "9d1a56a0-d01d-49ff-a69d-4b535a2704e6",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "8ccc553f-2d1a-413b-a30e-c73ec4d2bcc9",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "1d298bae-8f44-4554-b443-2bed3b4ca517",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "0ea253ba-daa5-4200-9581-f05fd87cdf5b",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "875cdc6d-2a6e-423e-b222-218b20756d93",
+    "userId": 1,
+    "partida": "Praia de Copacabana",
+    "destino": "Cristo Redentor",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "e8b8010a-ed1b-401c-9b54-3db41d5dead2",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "b9c488af-7c1d-4a71-9d06-c60cf615cf0d",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "9b8e9342-794a-47a3-800a-829674f4c632",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
+  },
+  {
+    "id": "d8fb1be5-be77-4364-a01d-00fedb73061d",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5,
+    "pontosGanhos": 50
   }
 ]

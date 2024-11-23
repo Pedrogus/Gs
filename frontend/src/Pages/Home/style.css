@@ -1,0 +1,68 @@
+/* Estilos gerais */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  justify-content: flex-start; /* Espaçamento ajustado para caber abaixo da Navbar */
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home-header h1 {
+  font-size: 2.5em;
+  color: #2c3e50;
+}
+
+.home-header p {
+  font-size: 1.2em;
+  color: #7f8c8d;
+}
+
+/* Estilo da seção de vídeo */
+.home-video-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home-video-section h2 {
+  font-size: 2em;
+  color: #27ae60;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container iframe {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo das informações do projeto */
+.home-project-info {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-project-info h2 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.home-project-info p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+
+  

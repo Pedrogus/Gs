@@ -1,5 +1,6 @@
-import TripManager from '../../components/TripManager';
+
 import MapComponent from '../../components/MapComponent';
+import TripManager from '../../components/Tripmanager';
 import './style.css'
 
 const GerencieViagem = () => {

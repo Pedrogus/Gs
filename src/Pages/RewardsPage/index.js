@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './style.css'; 
-import TripManager from '../../components/TripManager';
-import MapComponent from '../../components/MapComponent';
+
 
 const RewardsPage = () => {
   const [usuario, setUsuario] = useState(null);
@@ -86,17 +85,6 @@ const RewardsPage = () => {
       </div>
     </div>
 
-
-    <div className="travel-section">
-  <div className="map-container">
-    {/* Insira aqui o componente de mapa */}
-    <MapComponent />
-  </div>
-  <div className="trip-manager-container">
-    {/* Insira aqui o gerenciador de viagens */}
-    <TripManager />
-  </div>
-</div>
 
     {/* Conquistas */}
     <div className="achievements">

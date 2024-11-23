@@ -11,7 +11,7 @@ const viagensPath = path.join(__dirname, './src/data/viagens.json'); // Caminho 
 const usuariosPath = path.join(__dirname, './src/data/usuarios.json');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001
 
 app.use(cors());
 app.use(express.json());
@@ -60,6 +60,31 @@ app.get('/api/recompensas', (req, res) => {
           { nome: 'Viaje 10 km em scooters', recompensa: 500 }
       ] 
   });
+});
+
+
+// Historico de viagens 
+app.get('/api/viagens', (req, res) => {
+  try {
+    const viagens = JSON.parse(fs.readFileSync(viagensPath, 'utf-8'));
+    res.json(viagens);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao carregar viagens' });
+  }
+});
+
+app.post('/api/viagens', (req, res) => {
+  try {
+    const viagens = JSON.parse(fs.readFileSync(viagensPath, 'utf-8'));
+    const novaViagem = req.body;
+
+    viagens.push(novaViagem);
+    fs.writeFileSync(viagensPath, JSON.stringify(viagens, null, 2));
+
+    res.status(201).json({ message: 'Viagem adicionada com sucesso' });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao salvar a nova viagem' });
+  }
 });
 
 // Rota para resgatar pontos

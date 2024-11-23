@@ -6,7 +6,13 @@
 
 ## 🚀 Como Rodar o Projeto
 
-    node server.js
+    cd {pasta do projeto}
+    npm install
+    
+    //inicie o backend
+    npm start
+
+    //inicie o front end
     npm start
 
 💡 Ideia do Projeto

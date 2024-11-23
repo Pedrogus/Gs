@@ -43,5 +43,32 @@
     "modalidade": "scooter",
     "distancia": 5.541392995949922,
     "pontosGanhos": 44
+  },
+  {
+    "id": "f074b23b-2ae6-474f-82b5-5e7f1d10fdea",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5.541392995949922,
+    "pontosGanhos": 55
+  },
+  {
+    "id": "fc8bd7ec-7d2e-4004-85bb-013bf9358f96",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5.541392995949922,
+    "pontosGanhos": 55
+  },
+  {
+    "id": "4069c486-7fa5-4821-b76b-130fc7f10681",
+    "userId": 1,
+    "partida": "Cristo Redentor",
+    "destino": "Pão de Açúcar",
+    "modalidade": "bicicleta",
+    "distancia": 5.541392995949922,
+    "pontosGanhos": 55
   }
 ]

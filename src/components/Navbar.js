@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 
@@ -23,9 +22,9 @@ const Navbar = () => {
         <span>Gs-Electric </span>
       </div>
       <nav className="navbar-links">
-        <a href="#saiba-mais">Saiba Mais</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#historico">Histórico</a>
+        <a href="/inicarViagem">Viaje conosco</a>
+        <a href="/benefitis">Benefícios</a>
+        <a href="/history">Histórico</a>
         <a href="/rewards">Recompensas</a>
       </nav>
     </header>
